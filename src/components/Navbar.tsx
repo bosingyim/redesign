@@ -28,11 +28,11 @@ export const Navbar = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          keyword: searchQuery, 
-          limit: 10, 
-          type: 'all', 
-          show_btn_search: 'true', 
-          room_search: null, 
+          keyword: searchQuery,
+          limit: 10,
+          type: 'all',
+          show_btn_search: 'true',
+          room_search: null,
         }),
       });
 
@@ -77,7 +77,7 @@ export const Navbar = () => {
           radius="full"
           type="text"
           className="flex max-w-[220px] flex-row items-center rounded-full border-2 bg-white drop-shadow-lg"
-          placeholder="ค้นหาบน Pantip"
+          placeholder="ค้นหา..."
           startContent={
             <SearchIcon className="pointer-events-none mb-0.5 shrink-0 text-black/30 dark:text-white/90" />
           }
@@ -96,7 +96,7 @@ export const Navbar = () => {
           <div>เข้าสู่ระบบ/สมัครสมาชิก</div>
         </div>
       </div>
-     
+
       {loading && <div>Loading...</div>}
       {!loading && results.length > 0 && (
         <div className="">
