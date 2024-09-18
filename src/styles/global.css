@@ -1,0 +1,16 @@
+body {
+  font-family: 'Kanit', sans-serif;
+
+  background-color: #fff;
+  background-attachment: fixed;
+  background-size: cover;
+  /* background-position: center | right 30px bottom 15px; */
+  /* background-repeat: no-repeat | repeat | repeat-x; */
+  /* background-origin: border-box | padding-box | content-box; */
+  /* background-clip: border-box | padding-box | content-box; */
+  /* background-blend-mode: multiply | screen | overlay; */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
