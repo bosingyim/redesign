@@ -1,3 +1,10 @@
+# 1.0.0 (2024-09-18)
+
+
+### Features
+
+* **ui:** ปรับปรุงการออกแบบแถบค้นหา ([629d79d](https://github.com/bosingyim/redesign/commit/629d79d5fbd169835fedcbf4ef3caf981c350ce8))
+
 # [3.57.0](https://github.com/ixartz/Next-js-Boilerplate/compare/v3.56.2...v3.57.0) (2024-09-14)
 
 
