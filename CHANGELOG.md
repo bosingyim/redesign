@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/bosingyim/redesign/compare/v1.0.0...v1.1.0) (2024-09-19)
+
+
+### Features
+
+* **ui:** เปลี่ยนสี ปรับขนาด navbar ([881e05c](https://github.com/bosingyim/redesign/commit/881e05cc7c186a14e1ec6bed38edccd1bc4ee247))
+
 # 1.0.0 (2024-09-18)
 
 
