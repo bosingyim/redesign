@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 'use client';
 import { useState } from 'react';
 import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa';
@@ -24,7 +26,8 @@ export default function Index() {
   const hitzData = pageProps?.hitz?.data || [];
 
   return (
-    <div className="mt-32 flex w-full justify-center">
+
+    <div className="mt-32 flex w-full justify-center ">
       <div className="w-11/12 px-20 md:w-11/12 xl:w-full">
         {selectedRoom && (
           <div className="mt-5 rounded-xl border p-2">

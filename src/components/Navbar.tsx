@@ -2,8 +2,9 @@
 import { Input } from '@nextui-org/react';
 import Image from 'next/image';
 import { useState } from 'react';
-import { HiOutlineUserGroup } from 'react-icons/hi';
-import { RiFileAddLine } from 'react-icons/ri';
+import { FaUserCircle } from 'react-icons/fa';
+import { HiMenu, HiOutlineUserGroup } from 'react-icons/hi';
+import { RiChatQuoteLine } from 'react-icons/ri';
 
 import { SearchIcon } from './SearchIcon';
 
@@ -65,13 +66,14 @@ export const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 bg-white p-4 text-center text-lg text-gray-500 drop-shadow-md [&_a:hover]:text-indigo-500 [&_a]:text-fuchsia-500">
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-row items-center justify-between ">
         <Image
           src="/img/logo-mobile-pantip-navy.png"
           alt="pantip logo"
           className="w-16 p-1 opacity-50"
           width="100"
           height="100"
+
         />
         <Input
           radius="full"
@@ -85,16 +87,22 @@ export const Navbar = () => {
           onChange={handleInputChange}
         />
         <div className="flex flex-row gap-4 text-base">
-          <div className="">
-            <RiFileAddLine className="absolute top-2 rotate-12 overflow-hidden text-6xl text-black/10" />
+          <div>
+            <RiChatQuoteLine className="ml-3 size-8 pt-1" style={{ color: '#9966FF' }} />
+
             ตั้งกระทู้
           </div>
           <div>
-            <HiOutlineUserGroup className="absolute top-2 rotate-12 overflow-hidden text-6xl text-black/10" />
+            <HiOutlineUserGroup className="ml-3 size-8 pt-1" style={{ color: '#9966FF' }} />
             คอมมูนิตี้
           </div>
-          <div>เข้าสู่ระบบ/สมัครสมาชิก</div>
+          <div className="mt-1 flex  h-11 flex-row items-center rounded-full border-1 bg-white ">
+            <HiMenu className="size-10 px-2 text-gray-600" style={{ color: '#9966FF' }} />
+            <FaUserCircle className="size-10 px-2 text-gray-600 " style={{ color: '#9966FF' }} />
+          </div>
+
         </div>
+
       </div>
 
       {loading && <div>Loading...</div>}

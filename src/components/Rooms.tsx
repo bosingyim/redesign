@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 'use client';
 import { Skeleton } from '@nextui-org/react';
 import Image from 'next/image';
@@ -79,7 +82,7 @@ export const Rooms = () => {
       ref={containerRef}
     >
       <div
-        className="relative inline-block px-20 transition-transform duration-300"
+        className="relative inline-block px-20 pt-5 transition-transform duration-300"
         style={{ transform: `translateX(${translateX}px)` }}
         onMouseMove={handleMouseMove}
       >
@@ -114,11 +117,11 @@ export const Rooms = () => {
                   src={item.room_icon_url}
                   alt={item.name}
                   className={`${
-                    item.name_en === selectedRoom?.name_en ? 'border-2 border-indigo-700 bg-indigo-900' : 'border'
-                  }  rounded-full p-3`}
-                  width={64}
-                  height={64}
-                  style={{ filter: 'invert(1)' }}
+                    item.name_en === selectedRoom?.name_en ? 'border-2' : 'border'
+                  } rounded-full p-2`} // ลด padding
+                  width={48} // ขนาดใหม่
+                  height={48} // ขนาดใหม่
+                  style={{ backgroundColor: '#9966FF' }}
                 />
                 <span className="text-xs text-black">{item.name}</span>
               </div>
