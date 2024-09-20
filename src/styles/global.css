@@ -14,3 +14,21 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.floating-ball {
+  @apply absolute bg-blue-500 rounded-full;
+  width: 50px; /* ปรับขนาดตามต้องการ */
+  height: 50px; /* ปรับขนาดตามต้องการ */
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px); /* ระยะลอยขึ้น */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

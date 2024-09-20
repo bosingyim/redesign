@@ -1,8 +1,8 @@
 'use client';
-import { Input } from '@nextui-org/react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { FiSearch } from 'react-icons/fi';
 import { HiMenu, HiOutlineUserGroup } from 'react-icons/hi';
 import { RiChatQuoteLine } from 'react-icons/ri';
 
@@ -65,7 +65,8 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-white p-4 text-center text-lg text-gray-500 drop-shadow-md [&_a:hover]:text-indigo-500 [&_a]:text-fuchsia-500">
+    <div className="animate-float sticky top-0 z-50 bg-white p-4 text-center text-lg text-gray-500 drop-shadow-md [&_a:hover]:text-indigo-500 [&_a]:text-fuchsia-500">
+
       <div className="flex flex-row items-center justify-between ">
         <Image
           src="/img/logo-mobile-pantip-navy.png"
@@ -75,17 +76,26 @@ export const Navbar = () => {
           height="100"
 
         />
-        <Input
-          radius="full"
-          type="text"
-          className="flex max-w-[220px] flex-row items-center rounded-full border-2 bg-white drop-shadow-lg"
-          placeholder="ค้นหา..."
-          startContent={
-            <SearchIcon className="pointer-events-none mb-0.5 shrink-0 text-black/30 dark:text-white/90" />
+        <div className="flex w-full max-w-md items-center justify-between rounded-full border-2 border-gray-300 bg-white px-4 py-2 shadow-lg transition-all duration-300 focus-within:border-primary-500 focus-within:shadow-xl">
+          <div className="flex items-center space-x-2">
+            <SearchIcon className="size-5 text-gray-400 transition-all duration-300" />
+            <input
+              type="text"
+              placeholder="ค้นหา..."
+              className="w-80 text-sm text-gray-700  placeholder:text-gray-400 focus:outline-none"
+              value={query}
+              onChange={handleInputChange}
+            />
+
+          </div>
+          <button className="ml-2  rounded-full bg-purple-500 p-2 text-sm text-white transition-transform hover:scale-105">
+            <FiSearch className="size-4" />
+          </button>
+          {
+
           }
-          value={query}
-          onChange={handleInputChange}
-        />
+
+        </div>
         <div className="flex flex-row gap-4 text-base">
           <div>
             <RiChatQuoteLine className="ml-3 size-8 pt-1" style={{ color: '#9966FF' }} />
@@ -113,6 +123,19 @@ export const Navbar = () => {
           </ul>
         </div>
       )}
+      <style jsx>
+        {`
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+`}
+      </style>
     </div>
+
   );
 };

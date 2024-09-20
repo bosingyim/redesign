@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
@@ -110,7 +111,7 @@ export const Rooms = () => {
               <div
                 onClick={() => handleSelectRoom({ name: item.name, name_en: item.name_en })}
                 className={`${
-                  item.name_en === selectedRoom?.name_en ? 'scale-125' : 'opacity-30'
+                  item.name_en === selectedRoom?.name_en ? 'scale-125' : 'opacity-70'
                 } cursor-pointer transition-all duration-500 hover:opacity-70`}
               >
                 <Image
@@ -121,7 +122,7 @@ export const Rooms = () => {
                   } rounded-full p-2`} // ลด padding
                   width={48} // ขนาดใหม่
                   height={48} // ขนาดใหม่
-                  style={{ backgroundColor: '#9966FF' }}
+                  style={{ backgroundColor: '#a633e8' }}
                 />
                 <span className="text-xs text-black">{item.name}</span>
               </div>
