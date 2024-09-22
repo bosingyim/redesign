@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/bosingyim/redesign/compare/v1.1.0...v1.2.0) (2024-09-20)
+
+
+### Features
+
+* **ui:** เพิ่มอนิเมชั่น ขยายช่องค้นหา ([5f185b9](https://github.com/bosingyim/redesign/commit/5f185b9e380f617ab470b398666a9a1f293de57d))
+
 # [1.1.0](https://github.com/bosingyim/redesign/compare/v1.0.0...v1.1.0) (2024-09-19)
 
 
