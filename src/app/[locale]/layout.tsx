@@ -11,7 +11,7 @@ import { AppConfig } from '@/utils/AppConfig';
 
 export const metadata: Metadata = {
   title: 'PANTIP.COM',
-  description: 'Redesign by fhunn',
+  description: '-',
   icons: [
     {
       rel: 'apple-touch-icon',

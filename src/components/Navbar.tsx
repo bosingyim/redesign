@@ -69,7 +69,7 @@ export const Navbar = () => {
 
       <div className="flex flex-row items-center justify-between ">
         <Image
-          src="/img/logo-mobile-pantip-navy.png"
+          src="/img/pantip.jpg"
           alt="pantip logo"
           className="w-16 p-1 opacity-50"
           width="100"

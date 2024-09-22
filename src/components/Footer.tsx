@@ -25,7 +25,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               ติดต่อทีมงาน Pantip
             </a>
@@ -33,7 +33,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               ติดต่อลงโฆษณา
             </a>
@@ -41,7 +41,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               ร่วมงานกับ Pantip
             </a>
@@ -56,7 +56,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               กฎ กติกาและมารยาท
             </a>
@@ -64,7 +64,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               คำแนะนำการโพสต์
             </a>
@@ -72,7 +72,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               นโยบายเกี่ยวกับข้อมูลส่วนบุคคล
             </a>
@@ -80,7 +80,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               สิทธิ์การใช้งานของสมาชิก
             </a>
@@ -88,7 +88,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               Download App Pantip
             </a>
@@ -96,7 +96,7 @@ export const Footer = () => (
           <li>
             <a
               href="#about-section"
-              className="hover:text-indigo-500 transition duration-300"
+              className="transition duration-300 hover:text-indigo-500"
             >
               Pantip Certified Developer
             </a>
