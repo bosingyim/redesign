@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/bosingyim/redesign/compare/v1.3.0...v1.4.0) (2024-09-23)
+
+
+### Features
+
+* **ui:** เพิ่มปุ่มเลื่อน ([fb1bfce](https://github.com/bosingyim/redesign/commit/fb1bfcea658541ac6233c0c34d1105193eef47df))
+
 # [1.3.0](https://github.com/bosingyim/redesign/compare/v1.2.0...v1.3.0) (2024-09-22)
 
 
