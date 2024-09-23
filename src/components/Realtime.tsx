@@ -1,3 +1,6 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Chip } from '@nextui-org/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -17,7 +20,7 @@ const truncateText = (text: string, maxLength: number) => {
 export default function Realtime({ realtimeData }: any) {
   const [showAll, setShowAll] = useState(false);
 
-  // Show only the first 8 items if showAll is false
+  // Show only the first 12 items if showAll is false
   const itemsToShow = showAll ? realtimeData : realtimeData.slice(0, 12);
 
   return (
@@ -73,12 +76,15 @@ export default function Realtime({ realtimeData }: any) {
                   {formatValue(item?.views_count, 0)}
                 </div>
               </div>
-              <div className="mt-3 flex w-full flex-row gap-1 overflow-hidden">
+              <div className="mt-3 flex w-full flex-row gap-1 overflow-x-auto">
                 {item?.tags.map((tag: any, index: number) => (
-                  <a key={item?.topic_id + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank"><Chip className="opacity-75  transition-all hover:scale-105 hover:opacity-100" startContent={<IoMdPricetag size={16} />} size="sm">{tag?.name}</Chip></a>
+                  <a key={item?.topic_id + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank">
+                    <Chip className="opacity-75 transition-all hover:scale-105 hover:opacity-100" startContent={<IoMdPricetag size={16} />} size="sm">
+                      {tag?.name}
+                    </Chip>
+                  </a>
                 ))}
               </div>
-
             </div>
           </div>
         ))}

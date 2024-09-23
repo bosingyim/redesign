@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Chip } from '@nextui-org/react';
@@ -20,14 +21,16 @@ export default function Hitz({ hitzData }: any) {
   const [showAll, setShowAll] = useState(false);
 
   const itemsToShow = showAll ? hitzData : hitzData.slice(0, 3);
-  // console.log('hitzData:',hitzData)
+
   return (
     <div>
       <div className="grid grid-flow-row grid-cols-1 rounded-xl">
         {itemsToShow?.map((item: any, index: number) => (
           <div key={item?.title + index} className="col-span-1 m-1 flex flex-col rounded-xl bg-white p-3 drop-shadow-lg">
-            <a href={`https://pantip.com/topic/${item?.topic_id}`} target="_blank" className="text-xl font-semibold text-gray-600">{item?.thumbnail_url ? truncateText(item?.title, 70) : item?.title}</a>
-            <div className="relative mt-4  aspect-square h-56 w-full overflow-hidden rounded-xl border">
+            <a href={`https://pantip.com/topic/${item?.topic_id}`} target="_blank" className="text-xl font-semibold text-gray-600">
+              {item?.thumbnail_url ? truncateText(item?.title, 70) : item?.title}
+            </a>
+            <div className="relative mt-4 aspect-square h-56 w-full overflow-hidden rounded-xl border">
               <a href={`https://pantip.com/topic/${item?.topic_id}`} target="_blank">
                 {item?.thumbnail_url
                   ? (
@@ -72,9 +75,13 @@ export default function Hitz({ hitzData }: any) {
                 {formatValue(item?.views_count, 0)}
               </div>
             </div>
-            <div className="mt-3 flex w-full flex-row gap-1 overflow-hidden">
+            <div className="mt-3 overflow-x-auto whitespace-nowrap">
               {item?.tags?.map((tag: any, index: number) => (
-                <a key={item?.topic_id + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank"><Chip className="opacity-75  transition-all hover:scale-105 hover:opacity-100" startContent={<IoMdPricetag size={16} />} size="sm">{tag?.name}</Chip></a>
+                <a key={item?.topic_id + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank">
+                  <Chip className="opacity-75 transition-all hover:scale-105 hover:opacity-100" startContent={<IoMdPricetag size={16} />} size="sm">
+                    {tag?.name}
+                  </Chip>
+                </a>
               ))}
             </div>
           </div>
@@ -84,8 +91,7 @@ export default function Hitz({ hitzData }: any) {
       {hitzData.length > 3 && (
         <div className="mt-4 w-full border text-end">
           <div
-
-            className=" flex cursor-pointer items-center justify-center gap-2 rounded px-4 py-2 text-gray-500"
+            className="flex cursor-pointer items-center justify-center gap-2 rounded px-4 py-2 text-gray-500"
             onClick={() => setShowAll(!showAll)}
           >
             {showAll ? <FaAngleDoubleUp /> : <FaAngleDoubleDown />}
