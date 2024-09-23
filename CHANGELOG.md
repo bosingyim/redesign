@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/bosingyim/redesign/compare/v1.2.0...v1.3.0) (2024-09-22)
+
+
+### Features
+
+* **ui:** เปลี่ยน logo ([92fc0e7](https://github.com/bosingyim/redesign/commit/92fc0e7307b3453e33d26808d5dc0173b9ec249d))
+
 # [1.2.0](https://github.com/bosingyim/redesign/compare/v1.1.0...v1.2.0) (2024-09-20)
 
 
