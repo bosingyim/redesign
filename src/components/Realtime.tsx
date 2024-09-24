@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Chip } from '@nextui-org/react';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaEye, FaHeart } from 'react-icons/fa';
 import { IoMdPricetag } from 'react-icons/io';
 import { MdComment } from 'react-icons/md';
@@ -19,16 +19,48 @@ const truncateText = (text: string, maxLength: number) => {
 
 export default function Realtime({ realtimeData }: any) {
   const [showAll, setShowAll] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Show only the first 12 items if showAll is false
   const itemsToShow = showAll ? realtimeData : realtimeData.slice(0, 12);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    setStartX(e.clientX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) {
+      return;
+    }
+    e.preventDefault();
+    const x = e.clientX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 1; // 1 = scroll speed
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
 
   return (
     <div>
       <div className="grid grid-flow-row grid-cols-1 gap-2 rounded-lg md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
         {itemsToShow?.map((item: any, index: number) => (
           <div key={item?.title + index} className="col-span-1 m-1 flex flex-col justify-between rounded-2xl bg-white p-3 drop-shadow-lg">
-            <a href={`https://pantip.com/topic/${item?.topic_id}`} target="_blank" className="font-semibold text-gray-600">{item?.thumbnail_url ? truncateText(item?.title, 50) : item?.title}</a>
+            <a href={`https://pantip.com/topic/${item?.topic_id}`} target="_blank" className="font-semibold text-gray-600">
+              {item?.thumbnail_url ? truncateText(item?.title, 50) : item?.title}
+            </a>
 
             <div>
               <div className="relative mt-4 aspect-square h-56 w-full overflow-hidden rounded-xl border">
@@ -76,15 +108,29 @@ export default function Realtime({ realtimeData }: any) {
                   {formatValue(item?.views_count, 0)}
                 </div>
               </div>
-              <div className="mt-3 flex w-full flex-row gap-1 overflow-x-auto">
-                {item?.tags.map((tag: any, index: number) => (
-                  <a key={item?.topic_id + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank">
-                    <Chip className="opacity-75 transition-all hover:scale-105 hover:opacity-100" startContent={<IoMdPricetag size={16} />} size="sm">
-                      {tag?.name}
-                    </Chip>
-                  </a>
-                ))}
-              </div>
+              {item?.tags.length > 0 && (
+                <div
+                  ref={scrollRef}
+                  className="scrollable relative h-10 cursor-pointer overflow-hidden"
+                  onMouseDown={handleMouseDown}
+                  onMouseLeave={handleMouseLeave}
+                  onMouseUp={handleMouseUp}
+                  onMouseMove={handleMouseMove}
+                >
+                  <div className="flex">
+                    {item?.tags.map((tag: any, index: number) => (
+                      <a key={tag?.name + index} href={`https://pantip.com/tag/${tag?.name}`} target="_blank">
+                        <Chip className="m-1 rounded-full border border-indigo-500 bg-white px-2 py-1 text-xs transition-all hover:scale-105 hover:bg-indigo-100">
+                          <div className="flex items-center">
+                            <IoMdPricetag size={16} className="mr-1" />
+                            {tag?.name}
+                          </div>
+                        </Chip>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

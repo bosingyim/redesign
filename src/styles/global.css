@@ -21,14 +21,35 @@ body {
   animation: float 5s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-30px); /* ระยะลอยขึ้น */
-  }
-  100% {
-    transform: translateY(0);
-  }
+/* styles.css */
+.scrollable {
+  overflow-x: auto;
+  white-space: nowrap; /* Prevent wrapping of items */
+}
+
+/* Custom scrollbar styles */
+.scrollable::-webkit-scrollbar {
+  height: 4px; /* Height of horizontal scrollbar */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: #a633e8; /* Scrollbar color */
+  border-radius: 10px; /* Rounded edges */
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+}
+/* สำหรับแถบเลื่อน */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px; /* ความสูงของแถบเลื่อน */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #a633e8; /* สีของแถบเลื่อน */
+  border-radius: 10px; /* ให้มุมแบน */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #e0e0e0; /* สีของแทร็ก */
 }

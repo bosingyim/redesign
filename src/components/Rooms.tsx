@@ -1,14 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable tailwindcss/no-custom-classname */
+
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react-dom/no-missing-button-type */
-
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+
 'use client';
 import { Skeleton } from '@nextui-org/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { PiArrowSquareLeftDuotone, PiArrowSquareRightDuotone } from 'react-icons/pi';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetcher } from 'src/utils/GenericFn';
 import useSWR from 'swr';
@@ -22,7 +25,8 @@ export const Rooms = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [translateX, setTranslateX] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [showLeftButton, setShowLeftButton] = useState(false); // ใหม่
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLUListElement | null>(null);
 
@@ -50,7 +54,6 @@ export const Rooms = () => {
       let newTranslateX = translateX + containerWidth / 3; // Scroll by 1/3 of container width
       newTranslateX = Math.min(0, newTranslateX);
       setTranslateX(newTranslateX);
-      setShowLeftButton(newTranslateX < 0); // Update visibility
     }
   };
 
@@ -61,17 +64,27 @@ export const Rooms = () => {
       let newTranslateX = translateX - containerWidth / 3; // Scroll by 1/3 of container width
       newTranslateX = Math.max(-maxTranslate, newTranslateX);
       setTranslateX(newTranslateX);
-      setShowLeftButton(newTranslateX < 0); // Update visibility
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+    const handleScrollButtonsVisibility = () => {
+      if (menuRef.current && containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const maxTranslate = menuRef.current.scrollWidth - containerWidth;
+
+        // Check if the user can scroll left or right
+        setShowLeftButton(translateX < 0); // Show left button if there's scroll space to the left
+        setShowRightButton(translateX > -maxTranslate); // Show right button if there's scroll space to the right
       }
+    };
+
+    handleScrollButtonsVisibility();
+  }, [translateX, roomLists]); // Update visibility whenever translateX or roomLists change
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY === 0);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -79,11 +92,6 @@ export const Rooms = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    // Update button visibility based on translation
-    setShowLeftButton(translateX < 0);
-  }, [translateX]);
 
   return (
     <div
@@ -93,9 +101,12 @@ export const Rooms = () => {
       ref={containerRef}
     >
       <div className="relative flex items-center">
-        {showLeftButton && ( // แสดงปุ่มเลื่อนซ้ายเมื่อจำเป็น
-          <button onClick={handleScrollLeft} className="absolute left-0 z-10 mt-40 flex size-12 items-center justify-center px-2 text-5xl ">
-            <BsFillArrowLeftSquareFill style={{ color: '#a633e8' }} />
+        {showLeftButton && (
+          <button
+            onClick={handleScrollLeft}
+            className="left-button absolute left-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-black shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+          >
+            <PiArrowSquareLeftDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
           </button>
         )}
         <div
@@ -144,9 +155,15 @@ export const Rooms = () => {
             ))}
           </ul>
         </div>
-        <button onClick={handleScrollRight} className="absolute right-0 z-10 mt-40 flex size-12 items-center justify-center px-2 text-5xl ">
-          <BsFillArrowRightSquareFill style={{ color: '#a633e8' }} />
-        </button>
+        {showRightButton && (
+          <button
+            onClick={handleScrollRight}
+            aria-label="Scroll right"
+            className="right-button absolute right-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-black shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+          >
+            <PiArrowSquareRightDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
+          </button>
+        )}
       </div>
     </div>
   );

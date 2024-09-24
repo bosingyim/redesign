@@ -1,3 +1,5 @@
+/* eslint-disable react-dom/no-missing-button-type */
+/* eslint-disable tailwindcss/no-custom-classname */
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -71,7 +73,7 @@ export const Navbar = () => {
         <Image
           src="/img/pantip.jpg"
           alt="pantip logo"
-          className="w-16 p-1 opacity-50"
+          className="w-16 p-1 "
           width="100"
           height="100"
 
