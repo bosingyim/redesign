@@ -104,7 +104,7 @@ export const Rooms = () => {
         {showLeftButton && (
           <button
             onClick={handleScrollLeft}
-            className="left-button absolute left-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-black shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+            className="left-button absolute left-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-300 shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
           >
             <PiArrowSquareLeftDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
           </button>
@@ -159,7 +159,7 @@ export const Rooms = () => {
           <button
             onClick={handleScrollRight}
             aria-label="Scroll right"
-            className="right-button absolute right-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-black shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+            className="right-button absolute right-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-300 shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
           >
             <PiArrowSquareRightDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
           </button>
