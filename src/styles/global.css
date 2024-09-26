@@ -53,3 +53,17 @@ body {
 .scrollbar-thin::-webkit-scrollbar-track {
   background: #e0e0e0; /* สีของแทร็ก */
 }
+@layer utilities {
+  .bg-gradient-custom {
+    background: linear-gradient(to left, #ffff 60%, transparent);
+  }
+  .bg-gradient-custom2 {
+    background: linear-gradient(to right, #ffff 60%, transparent);
+  }
+}
+/* เพิ่มใน CSS */
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

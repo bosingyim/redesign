@@ -11,7 +11,7 @@
 import { Skeleton } from '@nextui-org/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { PiArrowSquareLeftDuotone, PiArrowSquareRightDuotone } from 'react-icons/pi';
+import { IoIosArrowDropleft, IoIosArrowDropright } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetcher } from 'src/utils/GenericFn';
 import useSWR from 'swr';
@@ -104,9 +104,9 @@ export const Rooms = () => {
         {showLeftButton && (
           <button
             onClick={handleScrollLeft}
-            className="left-button absolute left-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-300 shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+            className="left-button bg-gradient-custom2 absolute left-0 z-10 mt-8 flex size-20 items-center  justify-center"
           >
-            <PiArrowSquareLeftDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
+            <IoIosArrowDropleft style={{ color: '#a633e8', fontSize: '2rem' }} />
           </button>
         )}
         <div
@@ -159,9 +159,9 @@ export const Rooms = () => {
           <button
             onClick={handleScrollRight}
             aria-label="Scroll right"
-            className="right-button absolute right-0 z-10 mt-7 flex size-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-300 shadow-xl transition-transform duration-200 ease-in-out hover:scale-105"
+            className="right-button bg-gradient-custom absolute right-0 z-10 mt-7 flex size-20 items-center  justify-center"
           >
-            <PiArrowSquareRightDuotone style={{ color: '#ffffff', fontSize: '2rem' }} />
+            <IoIosArrowDropright style={{ color: '#a633e8', fontSize: '2rem' }} />
           </button>
         )}
       </div>
