@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/bosingyim/redesign/compare/v1.5.0...v1.6.0) (2024-09-25)
+
+
+### Features
+
+* **ui:** ปรับสี logo ปรับปุ่มเลื่อน ([903d394](https://github.com/bosingyim/redesign/commit/903d3941730b188db344ea45cd4f1b5074a473dd))
+
 # [1.5.0](https://github.com/bosingyim/redesign/compare/v1.4.0...v1.5.0) (2024-09-24)
 
 
