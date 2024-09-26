@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/bosingyim/redesign/compare/v1.6.0...v1.7.0) (2024-09-26)
+
+
+### Features
+
+* **ui:** ปรับ responsive ([6ff9499](https://github.com/bosingyim/redesign/commit/6ff949983fdd5a38eec90009336521a5a2a17162))
+
 # [1.6.0](https://github.com/bosingyim/redesign/compare/v1.5.0...v1.6.0) (2024-09-25)
 
 
